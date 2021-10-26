@@ -32,7 +32,7 @@ $(document).ready(function(){
         }
     });
 
-    // slide-up script
+    // slide-up button script
     $('.scroll-up-btn').click(function(){
         $('html').animate({scrollTop: 0});
     });
@@ -89,22 +89,76 @@ $(document).ready(function(){
 
 });
 
-let btnShowHide = document.getElementById('changeingButton');
-let section = document.getElementById('changeingSection');
+const hideShowButton = document.getElementById('hide-show-button');
+const traitsSkills = document.getElementById('traits-skills');
+let hideShowSection = document.getElementById('changeing-section');
 
-function hideShowDiv() {
-    if (section.classList.contains('buttonDisapear')) {
-        console.log('IM HIDDING');
-        section.classList.toggle('buttonDisapear');
-        btnShowHide.innerText = 'LESS';
+// Getting contact me section inputs
+const inputName = document.getElementById('input-name');
+const inputEmail = document.getElementById('input-email');
+const inputSubject = document.getElementById('input-subject');
+const txtTexterea = document.getElementById('txt-texterea');
+const contactBtn = document.getElementById('contact-btn'); 
+
+// Storing all the inputs in an array to filter through them
+// inputEmail is missing
+const inputs = [inputName, inputSubject, txtTexterea];
+
+// Storing the email format in a variable 
+const emailFormat = /^([a-zA-Z0-9\._]+)@([a-zA-Z0-9\._])+.([a-z]+)(.[a-z]+)?$/;
+
+const showHideFunction = () => {
+    if (hideShowSection.style.display != 'none') {
+        hideShowSection.style.display = 'none';
+        hideShowButton.innerHTML = `More <i class="fa fa-chevron-circle-down"></i>`;
+        hideShowButton.scrollIntoView();
     } else {
-        console.log('IM RIGHT HERE!');
-        section.classList.toggle('buttonDisapear');
-        btnShowHide.innerText = 'MORE';
+        hideShowSection.style.display = 'block';
+        hideShowButton.innerHTML = `Less <i class="fa fa-chevron-circle-up"></i>`;
     }
+};
+
+
+// const validateEmail = (inputEmail) => {
+//     if(inputEmail === emailFormat) {
+//         alert('valid');
+//         return true;
+//     } else {
+//         alert('not valid');
+//         return false;
+//     }
+// };
+const validateInputs = () => {
+    // inputEmail is missing
+    if (inputName.value === '' || inputSubject.value === '' || txtTexterea.value === '') {
+        alert('not valid');
+        return;
+    } else {
+        alert('valid');
+    }
+};
+
+const errorInputs = () => {
+    for(let i = 0; i < inputs.length; i++) {
+        console.log(i);
+        console.log(inputs);
+        if(inputs[i].value != '') {
+            console.log('I made into the second if block');
+            inputs[i].style.borderColor = 'green';
+        } else if (inputs[i].value === '') {
+            console.log('I made it into the third if!');
+            inputs[i].style.borderColor = 'red';
+        }
+    }
+
 }
 
 
+hideShowButton.addEventListener('click', showHideFunction);
+contactBtn.addEventListener('click', () => {
+    validateInputs();
+    errorInputs();
+});
 
 
 
