@@ -497,6 +497,10 @@ section .title::after {
     display: none;
 }
 
+.hide-show-section {
+    display: none;
+}
+
 /* PORTFOLIO SECTION STYLES */
 .portfolio {
     color: #fff;
@@ -535,6 +539,7 @@ section .title::after {
     background-color: #506CF0;
     border-color: #506CF0;
     color: #fff;
+    cursor: hand;
 }
 
 .filter .current:active {
@@ -786,6 +791,15 @@ section .title::after {
 .contact .right form .button button:hover {
     color: #506CF0;
     background: none;
+}
+
+
+/* .invalid-inputs {
+    border: 2px solid red;    
+} */
+
+input:active {
+    border: 2px solid grey;    
 }
 
 #typed {
