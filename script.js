@@ -46,14 +46,14 @@ $(document).ready(function(){
 
     // TYPING ANIMATION SCRIPT
     var typed = new Typed(".typing", {
-        strings: ["Full Stack Developer!", "Designer!", "Freelancer!"],
+        strings: ["WordPress Developer!", "PHP Developer!", "Developer!"],
         typeSpeed: 100,
         backSpeed: 60,
         loop: true
     });
 
     var typed = new Typed(".typing-2", {
-        strings: ["Full Stack Developer!", "Designer!", "Freelancer!"],
+        strings: ["WordPress Developer!", "PHP Developer!", "Developer!"],
         typeSpeed: 100,
         backSpeed: 60,
         loop: true
